@@ -9,6 +9,7 @@ namespace PongF19
         Vector2 _position;
         Rectangle _srcRect;
         Vector2 _velocity;
+        private Collider _collider;
 
         int _score;
         
@@ -19,11 +20,30 @@ namespace PongF19
             _position = position;
             _velocity = Vector2.Zero;
 
+            _collider = null;
             _score = 0;
+        }
+
+        public void getCollider(Collider collider) {
+            _collider = collider;
         }
 
         public int score() {
             return _score;
+        }
+
+        public Vector2 position() {
+            return _position;
+        }
+
+        private float clamp(float value, float min, float max) {
+            if (value < min) {
+                return min;
+            }
+            if (value > max) {
+                return max;
+            }
+            return value;
         }
 
         public void updateControl(float deltaTime, Keys upkey, Keys downkey) {
@@ -36,6 +56,8 @@ namespace PongF19
                 _velocity.Y = 200;
             }
             _position += deltaTime * _velocity;
+            _position.Y = clamp(_position.Y, 60, 264);
+            _collider.Update(_position, _velocity);
         }
 
         public void Draw(SpriteBatch spriteBatch) {

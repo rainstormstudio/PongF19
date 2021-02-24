@@ -35,11 +35,12 @@ namespace PongF19
                         },
                         Modifiers = {
                             new VelocityColorModifier {
-                                StationaryColor = Color.White.ToHsl(),
-                                VelocityColor = Color.Yellow.ToHsl(),
+                                StationaryColor = Color.Gray.ToHsl(),
+                                VelocityColor = new HslColor(50, 0.85f, 0.5f),
                                 VelocityThreshold = 40
                             },
                             new RotationModifier {RotationRate = 5f},
+                            new OpacityFastFadeModifier {},
                         }
                     }
                 }

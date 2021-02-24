@@ -1,17 +1,20 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
+using MonoGame.Extended.Collisions;
 
 namespace PongF19
 {
-    public class Player {
+    public class Player : Collider {
         Texture2D _texture;
         Vector2 _position;
         Rectangle _srcRect;
         Vector2 _velocity;
-        private Collider _collider;
 
         int _score;
+
+        public IShapeF Bounds {get;}
         
         public Player(Texture2D texture, Rectangle srcRect, Vector2 position) {
             _texture = texture;
@@ -20,12 +23,9 @@ namespace PongF19
             _position = position;
             _velocity = Vector2.Zero;
 
-            _collider = null;
-            _score = 0;
-        }
+            Bounds = new RectangleF(_position.X, _position.Y, _srcRect.Width, _srcRect.Height);
 
-        public void getCollider(Collider collider) {
-            _collider = collider;
+            _score = 0;
         }
 
         public int score() {
@@ -57,11 +57,17 @@ namespace PongF19
             }
             _position += deltaTime * _velocity;
             _position.Y = clamp(_position.Y, 60, 264);
-            _collider.Update(_position, _velocity);
+            Bounds.Position = _position;
         }
 
-        public void Draw(SpriteBatch spriteBatch) {
+        public void Draw(float deltaTime, SpriteBatch spriteBatch) {
             spriteBatch.Draw(_texture, _position, _srcRect, Color.White, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+        }
+
+        public void Update(float deltaTime) {}
+
+        public void OnCollision(CollisionEventArgs collisionInfo) {
+
         }
     }
 }

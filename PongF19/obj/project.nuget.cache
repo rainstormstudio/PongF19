@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "25TNSliS/uDKbxzJYXOGO1tBKbwzrhRq4MwXxw/MhKL49bQvv4OW+cNbgSGx8IJoTSbRIpK+LJhVWRvzIrDf3A==",
+  "dgSpecHash": "szloZjPy5dYDWsmCGc0QRIMxvAkWG5C85tzNVD5O/O7Oe5Ihd89oj5lCB5y47VtVpoi/s+s5SFt3hHvk9MEWbQ==",
   "success": true,
   "projectFilePath": "/home/daniel/Documents/workplace/PongF19/PongF19/PongF19.csproj",
   "expectedPackageFiles": [
     "/home/daniel/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
     "/home/daniel/.nuget/packages/monogame.extended/3.8.0/monogame.extended.3.8.0.nupkg.sha512",
+    "/home/daniel/.nuget/packages/monogame.extended.collisions/3.8.0/monogame.extended.collisions.3.8.0.nupkg.sha512",
     "/home/daniel/.nuget/packages/monogame.extended.particles/3.8.0/monogame.extended.particles.3.8.0.nupkg.sha512",
     "/home/daniel/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512",
     "/home/daniel/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"

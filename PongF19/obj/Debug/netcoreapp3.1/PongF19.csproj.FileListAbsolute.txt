@@ -24,3 +24,6 @@
 /home/daniel/Documents/workplace/PongF19/PongF19/bin/Debug/netcoreapp3.1/Content/mainsprites.xnb
 /home/daniel/Documents/workplace/PongF19/PongF19/bin/Debug/netcoreapp3.1/Content/gameboard.xnb
 /home/daniel/Documents/workplace/PongF19/PongF19/bin/Debug/netcoreapp3.1/Content/numbers.xnb
+/home/daniel/Documents/workplace/PongF19/PongF19/bin/Debug/netcoreapp3.1/MonoGame.Extended.dll
+/home/daniel/Documents/workplace/PongF19/PongF19/bin/Debug/netcoreapp3.1/MonoGame.Extended.Particles.dll
+/home/daniel/Documents/workplace/PongF19/PongF19/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll

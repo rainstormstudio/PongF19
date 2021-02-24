@@ -51,7 +51,7 @@ namespace PongF19
             _player1.getCollider(_collisionManager.createRectCollider(_player1.position(), new Vector2(8, 32), true));
             _player2 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(358, 60));
             _player2.getCollider(_collisionManager.createRectCollider(_player2.position(), new Vector2(8, 32), true));
-            _ball = new Ball(mainSpritesTexture, new Rectangle(8, 0, 8, 8));
+            _ball = new Ball(GraphicsDevice, mainSpritesTexture, new Rectangle(8, 0, 8, 8));
             _ball.getCollider(_collisionManager.createRectCollider(_ball.position(), new Vector2(8, 8), true));
 
             _collisionManager.createRectCollider(new Vector2(4, 56), new Vector2(392, 4), true);
@@ -82,18 +82,19 @@ namespace PongF19
 
         protected override void Draw(GameTime gameTime)
         {
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             GraphicsDevice.SetRenderTarget(_renderTarget);
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            _spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
             _gameBoard.Draw(_spriteBatch);
-            _ball.Draw(_spriteBatch);
+            _ball.Draw(deltaTime, _spriteBatch);
             _player1.Draw(_spriteBatch);
             _player2.Draw(_spriteBatch);
-            _collisionManager.Draw(GraphicsDevice, _spriteBatch);
+            //_collisionManager.Draw(GraphicsDevice, _spriteBatch);
             _spriteBatch.End();
 
             GraphicsDevice.SetRenderTarget(null);
-            _spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
+            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
             _spriteBatch.Draw(_renderTarget, new Rectangle(0, 0, 800, 600), Color.White);
             _spriteBatch.End();
 

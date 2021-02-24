@@ -13,8 +13,11 @@ namespace PongF19
         const float VC = 200;
 
         private Collider _collider;
+
+        private Particles _particles;
         
-        public Ball(Texture2D texture, Rectangle srcRect) {
+        public Ball(GraphicsDevice gd, Texture2D texture, Rectangle srcRect) {
+            _particles = new Particles(gd, _position);
             _texture = texture;
             _srcRect = srcRect;
 
@@ -22,6 +25,10 @@ namespace PongF19
             _velocity = VC * Vector2.Normalize(new Vector2(5, 2));
 
             _collider = null;
+        }
+
+        ~Ball() {
+            _particles = null;
         }
 
         public void getCollider(Collider collider) {
@@ -40,8 +47,9 @@ namespace PongF19
             _position = new Vector2(200 - 4, 170 - 4);
         }
 
-        public void Draw(SpriteBatch spriteBatch) {
+        public void Draw(float deltaTime, SpriteBatch spriteBatch) {
             spriteBatch.Draw(_texture, _position, _srcRect, Color.White, 0f, Vector2.Zero, Vector2.One, SpriteEffects.None, 0f);
+            _particles.Draw(deltaTime, spriteBatch);
         }
 
         public void update(float deltaTime) {
@@ -56,6 +64,7 @@ namespace PongF19
             }
             _position += deltaTime * _velocity;
             _collider.Update(_position, _velocity);
+            _particles.Update(deltaTime, _position + new Vector2(4, 4));
         }
     }
 }

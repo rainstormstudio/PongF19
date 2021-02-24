@@ -9,15 +9,14 @@ namespace PongF19
     public class GameBoard {
         Texture2D _texture;
 
-        Player _player1;
-        Player _player2;
+        Ball _ball;
+
         Score _score1;
         Score _score2;
 
-        public GameBoard(Texture2D texture, Player player1, Player player2) {
+        public GameBoard(Texture2D texture, Ball ball) {
             _texture = texture;
-            _player1 = player1;
-            _player2 = player2;
+            _ball = ball;
             _score1 = null;
             _score2 = null;
         }
@@ -31,8 +30,16 @@ namespace PongF19
         }
 
         public void update() {
-            _score1.update(_player1.score());
-            _score2.update(_player2.score());
+            switch (_ball.win()) {
+                case 1: {
+                    _score1.inc();
+                    break;
+                }
+                case 2: {
+                    _score2.inc();
+                    break;
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch) {

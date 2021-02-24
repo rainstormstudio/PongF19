@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 using MonoGame.Extended;
 using MonoGame.Extended.Collisions;
+using System;
 
 namespace PongF19
 {
@@ -16,6 +17,10 @@ namespace PongF19
 
         private Particles _particles;
 
+        private int _win;
+
+        Random _random;
+
         public IShapeF Bounds {get;}
         
         public Ball(GraphicsDevice gd, Texture2D texture, Rectangle srcRect) {
@@ -23,9 +28,11 @@ namespace PongF19
             _texture = texture;
             _srcRect = srcRect;
             Bounds = new RectangleF(_position.X, _position.Y, srcRect.Width, srcRect.Height);
+            _random = new Random();
 
+            _velocity = Vector2.Zero;
             reset();
-            _velocity = VC * Vector2.Normalize(new Vector2(5, 2));
+            _win = 0;
         }
 
         ~Ball() {
@@ -38,6 +45,13 @@ namespace PongF19
 
         public void reset() {
             _position = new Vector2(200 - 4, 170 - 4);
+            _velocity.X = 0;
+            _velocity.Y = 1;
+            if (_random.Next(0, 2) == 0) {
+                _velocity.Y = -1;
+            }
+            _velocity = _velocity.Rotate(_random.NextSingle(0.3333f, 0.6667f) * (float)Math.PI);
+            _velocity = VC * _velocity / _velocity.Length();
             Bounds.Position = _position;
         }
 
@@ -47,9 +61,21 @@ namespace PongF19
         }
 
         public void Update(float deltaTime) {
+            _win = 0;
             _position += deltaTime * _velocity;
+            if (_position.X < 5) {
+                reset();
+                _win = 2;
+            } else if (_position.X > 387) {
+                reset();
+                _win = 1;
+            }
             Bounds.Position = _position;
             _particles.Update(deltaTime, _position + new Vector2(4, 4));
+        }
+
+        public int win() {
+            return _win;
         }
 
         public void OnCollision(CollisionEventArgs collisionInfo) {
@@ -59,7 +85,6 @@ namespace PongF19
             _velocity = _velocity / _velocity.Length();
             _velocity *= VC;
             _position -= collisionInfo.PenetrationVector;
-            Debug.WriteLine("collided");
         }
     }
 }

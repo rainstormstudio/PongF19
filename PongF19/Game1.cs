@@ -52,8 +52,8 @@ namespace PongF19
             gameBoardTexture = Content.Load<Texture2D>("gameboard");
             numbersTexture = Content.Load<Texture2D>("numbers");
 
-            _player1 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(34, 60));
-            _player2 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(358, 60));
+            _player1 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(34, 164));
+            _player2 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(358, 164));
             _ball = new Ball(GraphicsDevice, mainSpritesTexture, new Rectangle(8, 0, 8, 8));
             _Nwall = new Wall(new Rectangle(4, 56, 392, 4));
             _Swall = new Wall(new Rectangle(4, 296, 392, 4));
@@ -68,7 +68,7 @@ namespace PongF19
             _collisionComponent.Insert(_Wwall);
             _collisionComponent.Insert(_Ewall);
             
-            _gameBoard = new GameBoard(gameBoardTexture, _player1, _player2);
+            _gameBoard = new GameBoard(gameBoardTexture, _ball);
             _gameBoard.setScore1(new Score(numbersTexture, new Vector2(100, 20)));
             _gameBoard.setScore2(new Score(numbersTexture, new Vector2(300, 20)));
         }

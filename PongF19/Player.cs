@@ -12,8 +12,6 @@ namespace PongF19
         Rectangle _srcRect;
         Vector2 _velocity;
 
-        int _score;
-
         public IShapeF Bounds {get;}
         
         public Player(Texture2D texture, Rectangle srcRect, Vector2 position) {
@@ -24,12 +22,6 @@ namespace PongF19
             _velocity = Vector2.Zero;
 
             Bounds = new RectangleF(_position.X, _position.Y, _srcRect.Width, _srcRect.Height);
-
-            _score = 0;
-        }
-
-        public int score() {
-            return _score;
         }
 
         public Vector2 position() {

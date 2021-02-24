@@ -14,6 +14,8 @@ namespace PongF19
 
         Rectangle _srcRect1;
         Rectangle _srcRect2;
+
+        private int _value;
         
         public Score(Texture2D texture, Vector2 position) {
             _texture = texture;
@@ -21,13 +23,15 @@ namespace PongF19
             _position.X -= (FONT_WIDTH * SCALE + 20) / 2;
             _srcRect1 = new Rectangle(0, 0, FONT_WIDTH, FONT_HEIGHT);
             _srcRect2 = new Rectangle(0, 0, FONT_WIDTH, FONT_HEIGHT);
+            _value = 0;
         }
 
-        public void update(int value) {
-            _srcRect1.X = (value / 10 % 10) % 5 * FONT_WIDTH;
-            _srcRect1.Y = (value / 10 % 10) / 5 * FONT_HEIGHT;
-            _srcRect2.X = (value % 10) % 5 * FONT_WIDTH;
-            _srcRect2.Y = (value % 10) / 5 * FONT_HEIGHT;
+        public void inc() {
+            _value ++;
+            _srcRect1.X = (_value / 10 % 10) % 5 * FONT_WIDTH;
+            _srcRect1.Y = (_value / 10 % 10) / 5 * FONT_HEIGHT;
+            _srcRect2.X = (_value % 10) % 5 * FONT_WIDTH;
+            _srcRect2.Y = (_value % 10) / 5 * FONT_HEIGHT;
         }
 
         public void Draw(SpriteBatch spriteBatch) {

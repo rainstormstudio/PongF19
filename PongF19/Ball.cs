@@ -78,13 +78,41 @@ namespace PongF19
             return _win;
         }
 
+        private float clamp(float value, float min, float max) {
+            if (value < min) {
+                return min;
+            }
+            if (value > max) {
+                return max;
+            }
+            return value;
+        }
+
         public void OnCollision(CollisionEventArgs collisionInfo) {
-            Vector2 normal = collisionInfo.PenetrationVector;
-            normal = normal / normal.Length();
-            _velocity = _velocity - 2 * (Vector2.Dot(_velocity, normal)) * normal;
-            _velocity = _velocity / _velocity.Length();
-            _velocity *= VC;
             _position -= collisionInfo.PenetrationVector;
+            Vector2 normal = -collisionInfo.PenetrationVector;
+            normal = normal / normal.Length();
+            if (collisionInfo.Other is Player && (normal.Y <= 0.001f)) {
+                Player p = (Player)collisionInfo.Other;
+                float range = (float)p.Rect.Height;
+                float value = _position.Y + _srcRect.Height / 2 - p.Position.Y;
+                value = clamp(value, 0.0f, range);
+                if (normal == new Vector2(1, 0)) {
+                    _velocity.Y = -1;
+                } else {
+                    _velocity.Y = 1;
+                    value = range - value;
+                }
+                _velocity.X = 0;
+                float angle = (value / range) * 150f + 15;
+                _velocity = _velocity.Rotate(angle * (float)Math.PI / 180f);
+                _velocity = _velocity / _velocity.Length();
+                _velocity *= VC;
+            } else {
+                _velocity = _velocity - 2 * (Vector2.Dot(_velocity, normal)) * normal;
+                _velocity = _velocity / _velocity.Length();
+                _velocity *= VC;
+            }
         }
     }
 }

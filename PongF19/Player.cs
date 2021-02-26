@@ -9,7 +9,13 @@ namespace PongF19
     public class Player : Collider {
         Texture2D _texture;
         Vector2 _position;
+        public Vector2 Position {
+            get { return _position; }
+        }
         Rectangle _srcRect;
+        public Rectangle Rect {
+            get { return _srcRect; }
+        }
         Vector2 _velocity;
 
         public IShapeF Bounds {get;}

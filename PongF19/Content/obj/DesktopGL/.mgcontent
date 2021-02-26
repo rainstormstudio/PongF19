@@ -4,11 +4,15 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/home/daniel/Documents/workplace/PongF19/PongF19/Content/game.wav</File>
     <File>/home/daniel/Documents/workplace/PongF19/PongF19/Content/gameboard.png</File>
+    <File>/home/daniel/Documents/workplace/PongF19/PongF19/Content/hit.wav</File>
     <File>/home/daniel/Documents/workplace/PongF19/PongF19/Content/mainsprites.png</File>
     <File>/home/daniel/Documents/workplace/PongF19/PongF19/Content/numbers.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

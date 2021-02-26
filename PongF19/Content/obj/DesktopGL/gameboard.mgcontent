@@ -3,7 +3,7 @@
   <SourceFile>/home/daniel/Documents/workplace/PongF19/PongF19/Content/gameboard.png</SourceFile>
   <SourceTime>2021-02-19T23:41:07.6986731-05:00</SourceTime>
   <DestFile>/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/gameboard.xnb</DestFile>
-  <DestTime>2021-02-19T23:41:10.9226639-05:00</DestTime>
+  <DestTime>2021-02-26T02:06:03.7482816-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended.Collisions;
 
@@ -10,10 +11,6 @@ namespace PongF19
         private GraphicsDeviceManager _graphics;
         private RenderTarget2D _renderTarget;
         private SpriteBatch _spriteBatch;
-
-        private Texture2D mainSpritesTexture;
-        private Texture2D gameBoardTexture;
-        private Texture2D numbersTexture;
 
         private CollisionComponent _collisionComponent;
         private GameBoard _gameBoard;
@@ -48,13 +45,17 @@ namespace PongF19
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            mainSpritesTexture = Content.Load<Texture2D>("mainsprites");
-            gameBoardTexture = Content.Load<Texture2D>("gameboard");
-            numbersTexture = Content.Load<Texture2D>("numbers");
+            Texture2D mainSpritesTexture = Content.Load<Texture2D>("mainsprites");
+            Texture2D gameBoardTexture = Content.Load<Texture2D>("gameboard");
+            Texture2D numbersTexture = Content.Load<Texture2D>("numbers");
+            SoundEffect hitSFX = Content.Load<SoundEffect>("hit");
+            SoundEffect gameSFX = Content.Load<SoundEffect>("game");
 
             _player1 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(34, 164));
             _player2 = new Player(mainSpritesTexture, new Rectangle(0, 0, 8, 32), new Vector2(358, 164));
             _ball = new Ball(GraphicsDevice, mainSpritesTexture, new Rectangle(8, 0, 8, 8));
+            _ball.HitSFX = hitSFX;
+            _ball.GameSFX = gameSFX;
             _Nwall = new Wall(new Rectangle(4, 56, 392, 4));
             _Swall = new Wall(new Rectangle(4, 296, 392, 4));
             _Wwall = new Wall(new Rectangle(0, 60, 4, 236));

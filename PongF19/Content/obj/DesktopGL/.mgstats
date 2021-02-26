@@ -1,4 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/home/daniel/Documents/workplace/PongF19/PongF19/Content/gameboard.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/gameboard.xnb","TextureProcessor","Texture2DContent",1464,480085,0.1830734
-"/home/daniel/Documents/workplace/PongF19/PongF19/Content/mainsprites.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/mainsprites.xnb","TextureProcessor","Texture2DContent",205,16469,0.1300441
-"/home/daniel/Documents/workplace/PongF19/PongF19/Content/numbers.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/numbers.xnb","TextureProcessor","Texture2DContent",161,685,0.001172
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/game.wav","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/game.xnb","SoundEffectProcessor","SoundEffectContent",77868,77929,0.1481687
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/gameboard.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/gameboard.xnb","TextureProcessor","Texture2DContent",1464,480085,0.0425624
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/hit.wav","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/hit.xnb","SoundEffectProcessor","SoundEffectContent",61484,61545,0.0115021
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/mainsprites.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/mainsprites.xnb","TextureProcessor","Texture2DContent",205,16469,0.0015703
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/numbers.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/numbers.xnb","TextureProcessor","Texture2DContent",161,685,0.0011001

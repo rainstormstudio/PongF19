@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 using System.Diagnostics;
 using MonoGame.Extended;
 using MonoGame.Extended.Collisions;
@@ -13,6 +13,14 @@ namespace PongF19
         Vector2 _position;
         Rectangle _srcRect;
         Vector2 _velocity;
+        SoundEffect _hitSFX;
+        SoundEffect _gameSFX;
+        public SoundEffect HitSFX {
+            set { _hitSFX = value; }
+        }
+        public SoundEffect GameSFX {
+            set { _gameSFX = value; }
+        }
         const float VC = 200;
 
         private Particles _particles;
@@ -31,6 +39,8 @@ namespace PongF19
             _random = new Random();
 
             _velocity = Vector2.Zero;
+            _hitSFX = null;
+            _gameSFX = null;
             reset();
             _win = 0;
         }
@@ -64,9 +74,15 @@ namespace PongF19
             _win = 0;
             _position += deltaTime * _velocity;
             if (_position.X < 5) {
+                if (_gameSFX != null) {
+                    _gameSFX.Play();
+                }
                 reset();
                 _win = 2;
             } else if (_position.X > 387) {
+                if (_gameSFX != null) {
+                    _gameSFX.Play();
+                }
                 reset();
                 _win = 1;
             }
@@ -89,6 +105,9 @@ namespace PongF19
         }
 
         public void OnCollision(CollisionEventArgs collisionInfo) {
+            if (_hitSFX != null) {
+                _hitSFX.Play();
+            }
             _position -= collisionInfo.PenetrationVector;
             Vector2 normal = -collisionInfo.PenetrationVector;
             normal = normal / normal.Length();

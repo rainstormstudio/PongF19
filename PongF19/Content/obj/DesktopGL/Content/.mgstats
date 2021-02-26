@@ -1,4 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/game.wav","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/Content/game.xnb","SoundEffectProcessor","SoundEffectContent",77868,77929,0.201198
 "/home/daniel/Documents/workplace/PongF19/PongF19/Content/gameboard.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/Content/gameboard.xnb","TextureProcessor","Texture2DContent",1464,480085,0.161847
+"/home/daniel/Documents/workplace/PongF19/PongF19/Content/hit.wav","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/Content/hit.xnb","SoundEffectProcessor","SoundEffectContent",61484,61545,0.7555604
 "/home/daniel/Documents/workplace/PongF19/PongF19/Content/mainsprites.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/Content/mainsprites.xnb","TextureProcessor","Texture2DContent",205,16469,0.1712598
 "/home/daniel/Documents/workplace/PongF19/PongF19/Content/numbers.png","/home/daniel/Documents/workplace/PongF19/PongF19/Content/bin/DesktopGL/Content/numbers.xnb","TextureProcessor","Texture2DContent",161,685,0.0013706
